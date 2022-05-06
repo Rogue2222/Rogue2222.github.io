@@ -1,0 +1,272 @@
+html {
+    font-size: 1em;
+}
+
+body {
+    background-image:url('../images/background.png');
+    background-size: cover;
+    min-width: 750px;
+    margin: 0;
+    padding-top: 100px;
+    font-family: 'Radio Canada', sans-serif;
+
+    display: grid;
+    grid-template-columns: 3fr auto auto;
+    grid-template-areas: 'fejlec fejlec fejlec'
+                         'fo sekcio oldalsav'
+                         'lablec lablec lablec';
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto; 
+}
+
+/*
+header-
+nav-
+main-
+section-
+article-
+aside-
+figure-
+footer-
+video-
+*/
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a#hidden {
+    position: relative;
+    left: -9999px;
+
+}
+
+ul {
+    list-style: none;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+/*nav*/
+
+header {
+    grid-area: fejlec;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: green;
+    height: 66px;
+    width: 100%;
+    grid-area: menu;
+}
+nav .logo {
+    float: left;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: green;
+}
+nav .links {
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+nav .links a {
+	display: block;
+	padding: 1em;
+	font-size: 1em;
+	color: #fff;
+    text-decoration: none;
+    font-variant: small-caps;
+}
+#nav-toggle {
+	position: absolute;
+	top: -100px;
+}
+nav .icon-burger {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+/*nav*/
+
+a.szovegbe {
+    text-decoration: none;
+    color: rgb(255, 255, 100);
+}
+
+a#ActualMenu {
+    color: yellow;
+}
+
+a#ActualMenu img {
+    border: 2px solid black;
+}
+
+label {
+    color: white;
+}
+
+main {
+    grid-area: fo;
+    margin-left: 5%;
+}
+
+main article {
+    columns: 2;
+    padding: 5px;
+    background-color: rgba(243, 241, 241,.4);
+}
+
+main article.kerdőív{
+    columns: 2;
+    padding: 5px;
+    background-color: rgba(243, 241, 241,.4);
+}
+
+article ol {
+    break-inside: avoid;
+}
+
+section {
+    grid-area: sekcio;
+    text-align: center;
+    background-color: rgba(243, 241, 241, .4);
+}
+
+aside#types {
+    grid-area: oldalsav;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+video {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+
+footer {
+    grid-area: lablec;
+    background-color: green;
+    text-align: center;
+    height: 100px;
+}
+
+/*Kérdőív*/
+form {
+    text-align: center;
+    background-color: rgba(243, 241, 241, .4);
+}
+
+form label {
+    color: black;
+}
+
+textarea {
+    width: 50%;
+    height: 100px;
+    resize: none;
+
+}
+
+fieldset {
+    border: none;
+}
+ 
+form label {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-right: 15px;
+    display:inline-block;
+}
+
+button {
+    float: left;
+    margin-left: 20px;
+    font-size: 1.25rem;
+}
+
+/*Kérdőív*/
+@media screen and (max-width: 1200px) {
+    main article {columns: 1;}
+    /**/
+    nav .logo {
+		float: none;
+		width: auto;
+		justify-content: left;
+	}
+	nav .links {
+		float: none;
+		position: fixed;
+		z-index: 9;
+		left: 0;
+		right: 0;
+		top: 66px;
+		bottom: 100%;
+		width: auto;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-evenly;
+		background-color: rgba(0, 0, 0, 0.8);
+		overflow: hidden;
+		box-sizing: border-box;
+		transition: all .5s ease-in-out;
+	}
+	nav .links a {
+		font-size: 1.4em;
+	}
+	nav :checked ~ .links {
+		bottom: 0;
+	}
+
+    nav :checked ~ .icon-burger{
+        color: yellow;
+	}
+
+	nav .icon-burger {
+		display: block;
+	}
+    button {
+        max-width: 100px;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    body {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 'fejlec fejlec'
+                            'fo oldalsav'
+                            'sekcio oldalsav'
+                            'lablec lablec';
+    }
+    section.s2 {
+        margin-left: 5%;
+    }
+}
